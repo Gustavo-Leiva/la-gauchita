@@ -1,0 +1,1234 @@
+/* =====================================================
+   1️⃣ BASE GLOBAL
+===================================================== */
+html, body {
+    overflow-x: hidden;
+}
+
+body {
+    font-family: "Montserrat", Helvetica, sans-serif;
+    margin: 0;
+  
+ /* Fondo degradado moderno y suave */
+   background-color: #F5F1E8;
+
+        /* Blur ligero para mejorar legibilidad del texto */
+    backdrop-filter: blur(1.5px);
+}
+
+
+
+h3 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    text-align: center;
+     color: #EF036C;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  
+}
+
+h2::after{
+  content:"";
+  display:block;
+  width:60px;
+  height:3px;
+  background:#EF036C;
+  margin:8px auto 0;
+}
+
+
+/* =====================================================
+   2️⃣ COMPONENTES GLOBALES
+===================================================== */
+
+
+
+/* =====================================================
+   3️⃣ NAVBAR
+===================================================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #1B2A41;
+  /* background: rgba(15, 23, 42, 0.9); */
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: visible; /* <-- importante */
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.8rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Marca */
+.nav-brand h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 0;
+}
+
+.nav-brand span {
+   font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 0.75rem;
+  color:#EE72F8;
+}
+
+/* Links */
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 0.5px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 4px; 
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: #EF036C;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+
+/* Botón hamburguesa */
+.hamburger {
+  display: none; /* por defecto no se muestra */
+  flex-direction: column;
+  justify-content: center; /* centramos las barras verticalmente */
+  align-items: center;
+  width: 3rem;
+  height: 2rem; /* un poco más alto para las barras */
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1100; /* arriba del menú */
+  margin: 1rem;
+  position: relative; /* importante */
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 0.25rem; /* más grueso */
+  background: #fff;
+  border-radius: 3px;
+  margin: 0.25rem 0; /* espacio entre barras */
+  transition: all 0.3s ease;
+  transform-origin: center; /* muy importante para la rotación centrada */
+}
+
+.hamburger.open span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  top: 50%;
+}
+
+
+/* Animación cruz */
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg);
+  background: #fff;
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+  
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg);
+  background: #fff;
+}
+
+
+/* =====================================================
+   4️⃣ HERO / SLIDER PRINCIPAL
+===================================================== */
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 4rem; /* espacio navbar */
+}
+
+.hero-slider img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease;
+  z-index: 1;
+}
+
+.hero-slider img.active {
+  opacity: 1;
+}
+
+
+/* ===== TEXTO SOBRE EL SLIDER ===== */
+.hero-overlay {
+  position: relative;
+  z-index: 5;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    color: #ffffff; /* blanco */
+    text-align: center;
+    padding: 2rem;
+
+}
+
+/*Estilo para el parrafo que esta dentro de la imagen*/
+.hero-overlay h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7); /* sombra extra para destacar */
+}
+
+/*Estilo para el titulo que esta dentro de la imagen*/
+.hero-overlay p {
+  font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+}
+
+.hero-overlay .btn-primary,
+.duplex-reserve .btn-primary {
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+    text-decoration: none;
+    /* background-color: #25D366; */
+    background-color: #31EC56;
+    color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.hero-overlay .btn-primary:hover {
+    background-color: #22B340;
+    transform: translateY(-2px);
+}
+
+.hero-overlay .btn-primary{
+  margin-top: 3rem;
+}
+
+
+
+
+/* =====================================================
+   5️⃣ SECCIÓN DÚPLEX (CARDS)
+===================================================== */
+
+.duplex-section {
+  padding: 1rem 1.5rem;
+ background: #F5F1E8;
+  text-align: center;
+}
+
+.duplex-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 3rem;
+  color: #0f172a;
+}
+
+.duplex-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+}
+
+.duplex-card {
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  transition: 0.4s ease;
+}
+
+.duplex-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+}
+
+.duplex-card img {
+  width: 100%;
+  height: 18rem;
+  object-fit: cover;
+}
+
+.duplex-card h3 {
+  font-size: 1.3rem;
+  margin: 1.2rem 1rem 0.4rem;
+  color: #0f172a;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+
+.duplex-card p {
+  font-size: 0.95rem;
+  color: #475569;
+  margin-bottom: 1.4rem;
+}
+
+
+/* Botón */
+.duplex-card a {
+  display: inline-block;
+  margin-bottom: 1.6rem;
+  padding: 0.6rem 1.8rem;
+  background-color:#31EC56;
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.duplex-card a:hover {
+  background:#22B340;
+  transform: translateY(-2px);
+}
+
+
+
+
+/* =====================================================
+   6️⃣ CARRUSEL INTERNO DÚPLEX
+===================================================== */
+
+.duplex-carousel-wrapper {
+    /* display: flex; */
+    gap: 3rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: stretch;
+}
+
+.duplex-carousel {
+    flex: 2;
+    position: relative;
+    height: 65vh;
+    min-height: 28rem;
+    border-radius: 1.2rem;
+    overflow: hidden;
+    box-shadow: 0 1rem 2.5rem rgba(0,0,0,0.02);
+}
+
+
+.carousel-container img {
+ position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-container img.active {
+  opacity: 1;
+}
+
+
+/* =====================================================
+   1️⃣ Planta Baja y Planta Alta
+===================================================== */
+
+
+/*Planta Baja titulo*/
+.duplex-hero {
+    position: relative;
+    text-align: center;
+    padding: 5rem 2rem 1rem; /* espacio superior para navbar */
+    background: url('../assets/img/hero-duplex.jpg') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.duplex-hero-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color:  #ffffff;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+}
+
+.description-container h3::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #EF036C;
+    margin: 8px auto 0;
+}
+
+.duplex-hero-text p {
+    font-size: 1.2rem;
+    color: #EE72F8;
+}
+
+.duplex-hero-text h2::after{
+    content:"";
+    display:block;
+    width:60px;
+    height:3px;
+    background:#EF036C;
+    margin:10px auto 0;
+}
+
+
+/* ===== DESCRIPCIÓN DEL DÚPLEX Planta Baja===== */
+.duplex-description {
+    flex: 1;    
+    background: #F5F1E8;  
+    padding: 1rem;
+    border-radius: 1.2rem;
+    box-shadow: 0 1rem 2.5rem rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* reparte bloques verticalmente */
+    
+}
+
+.description-container {
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* ocupa toda la altura de la descripción */
+   
+    
+}
+
+.desc-block {
+    margin-bottom: 0.25rem;
+}
+
+.desc-block h4 {
+    font-size: 1.2rem;
+    color: #EE72F8;
+    margin-bottom: 0.5rem;
+}
+
+.desc-block p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+
+
+
+/* =====================================================
+   7️⃣ VIDEO
+===================================================== */
+/*Planta Baja*/
+.duplex-video {
+     padding: 4rem 2rem;
+    text-align: center; 
+    border-radius: 20px; /* suaviza contenedor general */
+    background: #F5F1E8;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15); /* sombra sutil */
+    margin: 4rem 1rem; /* espacio externo */
+    position: relative;
+    overflow: hidden;
+}
+
+.duplex-video h3 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #EF036C; /* azul oscuro legible */
+    text-shadow: 1px 1px 4px rgba(255,255,255,0.5); /* resalta sobre fondo */
+}
+
+/* Contenedor con ancho limitado */
+.video-container {
+  
+     max-width: 60rem;           /* ancho máximo */
+    margin: 0 auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    position: relative;
+    background: #f1f5f9; /* fondo suave */
+    height: 0;
+    padding-top: 40%;           /* menor porcentaje = menos alto */
+    
+}
+
+/* Proporción 16:9 para no alargar demasiado el video */
+.video-container::before {
+    content: "";
+    display: block;
+    padding-top: 100%; /* 16:9 */
+}
+
+/* Estilo del video */
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+
+
+
+/* Flechas */
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 20px;
+}
+
+.carousel-controls button {
+  background: rgba(0,0,0,0.4);
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    padding: 0.8rem 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.carousel-controls button:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== GRADIENT OVERLAY para sombra ===== */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  z-index: 2;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   9️⃣ FOOTER
+===================================================== */
+.footer-modern {
+  background: linear-gradient(to top, #06121c, #0f172a);
+  color: #e5e7eb;
+  padding: 4rem 1.5rem;
+}
+
+.footer-modern-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+}
+
+/* Brand */
+.footer-modern .brand h3 {
+  font-size: 1.6rem;
+  color: #fff;
+  margin-bottom: 0.6rem;
+}
+
+.footer-modern .brand p {
+  color: #cbd5e1;
+  line-height: 1.6;
+  max-width: 380px;
+}
+
+/* Columnas */
+.footer-col h4 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+.footer-col a,
+.footer-col p {
+  display: block;
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  margin-bottom: 0.6rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.footer-col a:hover {
+  color: #EF036C;
+  transform: translateX(4px);
+}
+
+.footer-copy {
+  margin-top: 3rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+
+
+
+
+
+.seo-text {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 1rem;
+  
+  /* background: linear-gradient(135deg, rgba(44,123,229,0.08), rgba(44,123,229,0.15)); */
+  border-radius: 12px;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.seo-text:hover {
+  transform: translateY(-5px);
+}
+
+.seo-text h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color:#333; /* azul principal */
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+.seo-text h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color:#090e1a; /* azul más oscuro para línea */
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+.seo-text p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #555; /* gris oscuro para párrafo */
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Opcional: iconos decorativos minimalistas */
+.seo-text::before,
+.seo-text::after {
+  content: "";
+  position: absolute;
+  font-size: 3rem;
+  opacity: 0.08; /* muy sutil */
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #2c7be5;
+}
+
+
+.seo-text h2::after{
+    content:"";
+    display:block;
+    width:50px;
+    height:3px;
+    background:#EF036C;
+    margin:10px auto 0;
+}
+
+.seo-text::before {
+  top: 10px;
+  left: 10px;
+}
+
+.seo-text::after {
+  bottom: 10px;
+  right: 10px;
+}
+
+/* =========================
+   SECCIÓN CONTACTO PROFESIONAL
+========================= */
+
+.contact-section {
+    position: relative;
+    padding: 3rem 1rem;
+    text-align: center;
+    color: #fff;
+    background-image: url('./assets/img/fondo-contacto.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    font-family: "Montserrat", Helvetica, sans-serif;
+}
+
+/* Capa de superposición */
+.contact-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.65), rgba(0,0,0,0.45));
+    z-index: 0;
+}
+
+/* Todo el contenido encima de la superposición */
+.contact-section > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Título principal */
+.contact-section h2 {
+    font-size: 2.8rem;
+    margin-bottom: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+}
+
+.contact-section p {
+    font-size: 1.15rem;
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+}
+
+/* Botones de contacto */
+.contact-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.contact-buttons .btn-primary {
+    background-color:#EF036C;
+    color: #fff;
+    padding: 0.9rem 2.2rem;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.contact-buttons .btn-primary:hover {
+    background-color:#d0025e;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.contact-buttons .btn-whatsapp{
+    background-color:#31EC56;
+    color: #fff;
+    padding: 0.9rem 2.2rem;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    /* margin-top: 5rem; */
+}
+
+.contact-buttons .btn-whatsapp:hover {
+     background-color: #22B340;
+    transform: translateY(-3px);
+}
+
+
+
+
+
+
+
+
+.ubicacion{
+margin-top: 3rem;
+}
+
+/* Información de contacto estilo tarjeta */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+    font-size: 1rem;
+    color: #e0e6ed;
+}
+
+.contact-info p {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(255,255,255,0.1);
+    padding: 0.8rem 1.2rem;
+    border-radius: 12px;
+    width: 100%;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.contact-info p:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+/* Íconos decorativos opcionales */
+.contact-info p::before {
+    font-size: 1.2rem;
+}
+
+
+/* =========================
+   SECCIÓN UBICACIÓN PROFESIONAL
+========================= */
+
+.ubicacion-section {
+    position: relative;
+    padding: 100px 20px;
+    text-align: center;
+    color: #fff;
+    background-image: url('../assets/img/fondo-ubicacion.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    min-height: 650px;
+    font-family: "Montserrat", Helvetica, sans-serif;
+}
+
+/* Overlay elegante */
+.ubicacion-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(0,0,0,0.4));
+    z-index: 0;
+}
+
+/* Contenido encima del overlay */
+.ubicacion-section > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Título */
+.ubicacion-section h2 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+.ubicacion-section p {
+    font-size: 1.15rem;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+}
+
+/* Contenedor del mapa */
+.map-container {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    height: 0;
+    padding-bottom: 56.25%; /* relación 16:9 */
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover efecto sutil */
+.map-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 45px rgba(0,0,0,0.35);
+}
+
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 15px;
+}
+
+
+
+/*Duplex planta Alta*/
+.duplex-features {
+    padding: 1rem;
+    /* background: #f1f5f9;; */
+}
+
+.features-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.8rem;
+}
+
+.feature {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.04);
+    transition: 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-4px);
+}
+
+.feature i {
+    font-size: 1.4rem;
+    color:#31EC56;
+    margin-top: 0.2rem;
+}
+
+.feature p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+
+.duplex-features h3::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #EF036C;
+    margin: 8px auto 0;
+}
+
+.duplex-reserve {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+
+/*Whatsapp Flotante*/
+
+.whatsapp-float {
+     position: fixed; /* fijo al viewport */
+    bottom: 20px;     /* margen desde abajo */
+    right: 20px;      /* margen desde la derecha */
+    width: 60px;
+    height: 60px;
+    z-index: 9999;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #25D366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.whatsapp-float img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; /* círculo */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1); /* efecto hover */
+}
+
+/* ===== Grande: tablets horizontales / laptops ≤ 992px ===== */
+@media (max-width: 992px) {
+    .duplex-section h2 { font-size: 2rem; }
+    .duplex-card img { height: 13.75rem; } /* antes 220px */
+    .seo-text h2 { font-size: 2rem; }
+    .seo-text p { font-size: 1rem; }
+    .btn-primary, .btn-whatsapp { width: auto; padding: 0.8rem 2rem; font-size: 1rem; }
+}
+
+/* ===============================
+   RESPONSIVE - MÓVILES (max-width: 768px)
+================================= */
+
+
+
+
+/* ===== Muy pequeños: celulares ≤ 480px ===== */
+@media (max-width: 480px) {
+    .duplex-section h2 { font-size: 1.5rem; }
+    .duplex-card img { height: 9rem; } /* antes 150px */
+    .seo-text h2 { font-size: 1.5rem; }
+    .seo-text p { font-size: 0.9rem; }
+    .btn-primary, .btn-whatsapp { width: 90%; padding: 0.65rem 0; font-size: 0.9rem; }
+}
+
+/* ===== Pequeño: celulares medianos ≤ 576px ===== */
+@media (max-width: 576px) {
+    .duplex-section h2 { font-size: 1.6rem; }
+    .duplex-card img { height: 10.5rem; } /* antes 170px */
+    .seo-text h2 { font-size: 1.6rem; }
+    .seo-text p { font-size: 0.95rem; }
+    .btn-primary, .btn-whatsapp { width: 85%; padding: 0.7rem 0; font-size: 0.95rem; }
+}
+
+@media (max-width: 768px) {
+
+    /* ===== NAVBAR RESPONSIVE ===== */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%; /* fuera de la pantalla al inicio */
+    flex-direction: column;
+    background: #002147; /* azul marino sólido */
+    width: 20rem; /* ancho cómodo */
+    height: 100vh;
+    padding: 4rem 2rem;
+    gap: 1.8rem;
+    transition: right 0.3s ease;
+    z-index: 999;
+  }
+
+  .nav-links a {
+    font-size: 1.3rem;
+    color: #fff;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  /* Activar menú hamburguesa */
+  .nav-links.active {
+    right: 0;
+    background: #002147;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  /* ===== HERO / DUPLEX ===== */
+  .duplex-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .duplex-card img {
+    height: 200px;
+  }
+
+  /* ===== SEO TEXT ===== */
+  .seo-text {
+    padding: 30px 20px;
+  }
+
+  .seo-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .seo-text p {
+    font-size: 1rem;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer-modern-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-modern {
+     text-align: center;
+  }
+
+  .footer-col a:hover {
+    transform: none;
+  }
+
+  .footer-modern .brand p {
+    margin: 0 auto;
+  }
+
+  /* ===== CONTACTO ===== */
+
+ /* Ajustar padding general de la sección */
+    .contact-section {
+        padding: 7rem 1rem;
+    }
+
+    /* Contenedor centrado con ancho máximo más reducido */
+    .contact-container {
+        width: 100%;
+        max-width: 500px;
+        margin: auto;
+        text-align: center;
+    }
+
+    /* Subtítulo más legible en móviles */
+    .contact-subtitle {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Botones apilados verticalmente con espacio entre ellos */
+    .contact-buttons {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .btn-primary, .btn-whatsapp {
+        width: 80%;      /* Botones ocupan todo el ancho del contenedor */
+        padding: 0.75rem 0;
+        font-size: 1rem;
+    }
+
+    /* Información de contacto centrada y con margen */
+    .contact-info {
+        text-align: center;
+        margin-top: 2rem;
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+
+  /* ===== UBICACIÓN ===== */
+
+   .ubicacion-section {
+    padding: 8rem 1rem;
+   
+}
+
+  .ubicacion-section h2 {
+    margin-top: 0;
+    font-size: 2.2rem;
+  }
+
+  .ubicacion-section p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .map-container {
+    margin-top: 4rem;
+    padding-bottom: 65%;
+  }
+   .contact-buttons.ubicacion {
+        flex-direction: column; /* apilar botones en móvil */
+        gap: 1rem;
+      }
+
+}
