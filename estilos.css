@@ -12,6 +12,7 @@ body {
  /* Fondo degradado moderno y suave */
    background-color: #F5F1E8;
 
+
         /* Blur ligero para mejorar legibilidad del texto */
     backdrop-filter: blur(1.5px);
 }
@@ -441,8 +442,8 @@ h2::after{
 .duplex-description {
     flex: 1;    
     background: #F5F1E8;  
-    padding: 1rem;
-    border-radius: 1.2rem;
+    padding: 1.5rem;
+    border-radius: 1rem;
     box-shadow: 0 1rem 2.5rem rgba(0,0,0,0.05);
     display: flex;
     flex-direction: column;
@@ -814,6 +815,7 @@ h2::after{
     text-decoration: none;
     transition: all 0.3s ease;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    
 }
 
 .contact-buttons .btn-primary:hover {
@@ -989,6 +991,10 @@ margin-top: 3rem;
     gap: 1rem;
     box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.04);
     transition: 0.3s ease;
+     display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .feature:hover {
@@ -1004,6 +1010,7 @@ margin-top: 3rem;
 .feature p {
     margin: 0;
     font-size: 0.95rem;
+    text-align: center;
 }
 
 
@@ -1060,32 +1067,12 @@ margin-top: 3rem;
     .seo-text h2 { font-size: 2rem; }
     .seo-text p { font-size: 1rem; }
     .btn-primary, .btn-whatsapp { width: auto; padding: 0.8rem 2rem; font-size: 1rem; }
+
+    .contact-info{
+  margin-right: 3rem;
+}
 }
 
-/* ===============================
-   RESPONSIVE - MÓVILES (max-width: 768px)
-================================= */
-
-
-
-
-/* ===== Muy pequeños: celulares ≤ 480px ===== */
-@media (max-width: 480px) {
-    .duplex-section h2 { font-size: 1.5rem; }
-    .duplex-card img { height: 9rem; } /* antes 150px */
-    .seo-text h2 { font-size: 1.5rem; }
-    .seo-text p { font-size: 0.9rem; }
-    .btn-primary, .btn-whatsapp { width: 90%; padding: 0.65rem 0; font-size: 0.9rem; }
-}
-
-/* ===== Pequeño: celulares medianos ≤ 576px ===== */
-@media (max-width: 576px) {
-    .duplex-section h2 { font-size: 1.6rem; }
-    .duplex-card img { height: 10.5rem; } /* antes 170px */
-    .seo-text h2 { font-size: 1.6rem; }
-    .seo-text p { font-size: 0.95rem; }
-    .btn-primary, .btn-whatsapp { width: 85%; padding: 0.7rem 0; font-size: 0.95rem; }
-}
 
 @media (max-width: 768px) {
 
@@ -1230,5 +1217,122 @@ margin-top: 3rem;
         flex-direction: column; /* apilar botones en móvil */
         gap: 1rem;
       }
+
+
+/* ===============================
+   RESPONSIVE - MÓVILES (max-width: 768px)
+================================= */
+/* ===== Pequeño: celulares medianos ≤ 576px ===== */
+@media (max-width: 576px) {
+    .duplex-section h2 { font-size: 1.6rem; }
+    .duplex-card img { height: 10.5rem; } /* antes 170px */
+    .seo-text h2 { font-size: 1.6rem; }
+    .seo-text p { font-size: 0.95rem; }
+    .btn-primary, .btn-whatsapp { width: 85%; padding: 0.7rem 0; font-size: 0.95rem; }
+}
+
+
+/* ===== Muy pequeños: celulares ≤ 480px ===== */
+@media (max-width: 480px) {
+  .duplex-section h2 { font-size: 1.5rem; }
+  .duplex-card img { height: 9rem; }
+
+  .seo-text h2 { font-size: 1.5rem; }
+  .seo-text p { font-size: 0.9rem; }
+
+  .btn-primary, .btn-whatsapp {
+      width: 90%;
+      padding: 0.65rem 0;
+      font-size: 0.9rem;
+  }
+ 
+  .features-grid{
+     grid-template-columns: repeat(2,1fr);
+     gap: 1rem;
+  }
+
+.feature{
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0.5rem;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.feature i{
+    font-size: 1.1rem;
+    color: #EF036C;
+}
+
+.feature p{
+    margin: 0;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+
+.contact-info{
+    margin-top: 2rem;
+    text-align: center;
+}
+
+
+.contact-info p{
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+
+
+.contact-buttons{
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: center;
+}
+
+
+.contact-buttons .btn-primary,
+.contact-buttons .btn-whatsapp{
+    width: 90%;
+    padding: 0.7rem 0;
+    font-size: 0.95rem;
+    border-radius: 8px;
+}
+
+
+/* ===== VIDEO ===== */
+
+.duplex-video{
+    padding: 1rem 0.5rem; /* menos espacio lateral */
+    margin: 1rem 0.5rem;
+    text-align: center;
+}
+
+
+.duplex-video h3{
+    font-size: 1.3rem;
+    margin-top: 0.3rem;
+}
+
+.video-container{
+    width: 100%;
+    max-width: 100%;
+}
+
+.video-container{
+    max-width: 100%;
+    padding-top: 60%;   /* hace el video más alto */
+}
+
+.video-container video{
+    object-fit: cover;
+}
+
+}
+
 
 }
