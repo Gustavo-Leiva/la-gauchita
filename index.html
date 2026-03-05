@@ -9,9 +9,15 @@
   <title>Alquiler de Dúplex en Mar del Tuyú | La Gauchita</title>
   <!-- ===== LINK AL CSS ===== -->
   <link rel="stylesheet" href="./estilos.css">
+  <!-- libreria para calendario -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+ <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <!-- para que sea en español el calendario viene por defecto en ingles -->
+ <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
   <script src="./js/app1.js" defer></script>
-   <script src="./js/app3.js" defer></script>
-     <script src="./js/app4.js" defer></script>
+  <script src="./js/app3.js" defer></script>
+  <script src="./js/app4.js" defer></script>
+  <script src="./js/app5.js" defer></script>
 
 
 
@@ -64,15 +70,61 @@
         Espacio ideal para descansar en familia o en pareja.
       </p>
 
-      <a class="btn-primary"
-        href="https://wa.me/5491133684166?text=Hola%20quiero%20consultar%20disponibilidad%20en%20La%20Gauchita"
-        target="_blank" rel="noopener">
-        Consultar Disponibilidad
+      <a class="btn-primary" href="#disponibilidad">
+      Ver disponibilidad
       </a>
 
+      <!-- <a class="btn-primary"
+        href="https://wa.me/5491135112751?text=Hola%20quiero%20consultar%20disponibilidad%20en%20La%20Gauchita"
+        target="_blank" rel="noopener">
+        Consultar Disponibilidad
+      </a> -->
+
     </div>
+
+
   </section>
 
+<section id="disponibilidad" class="disponibilidad">
+
+  <h2>Disponibilidad</h2>
+ 
+   <p class="nota-calendario">
+    📅 Revisá el calendario y luego elegí tus fechas abajo.
+  </p>
+
+<!-- Calendario solo como referencia -->
+  <div class="calendario-container">
+    <iframe 
+  src="https://calendar.google.com/calendar/embed?src=gdleiva08@gmail.com&ctz=America%2FArgentina%2FBuenos_Aires&hl=es&mode=MONTH&showTitle=0&showNav=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0"
+  class="calendario-frame">
+  </iframe>
+  </div>
+
+
+
+  <!-- Campos de entrada y salida -->
+  <div class="reserva-fechas">
+  <h3 class="seleccion-fechas">Seleccioná tus fechas</h3>
+
+  <div class="fechas-grid">
+    <div class="campo-fecha">
+      <label for="fechaEntrada">Entrada</label>
+      <input type="text" id="fechaEntrada" placeholder="dd/mm/yyyy">
+    </div>
+
+    <div class="campo-fecha">
+      <label for="fechaSalida">Salida</label>
+      <input type="text" id="fechaSalida" placeholder="dd/mm/yyyy">
+    </div>
+  </div>
+
+  <button id="btnConsultar" class="btn-reserva">
+    Consultar
+  </button>
+</div>
+
+</section>
 
   <section id="nuestrosDuplex" class="duplex-section">
 
@@ -170,7 +222,13 @@
 </script>
 
 
-
+<!-- Modal de aviso -->
+<div id="modalAviso" class="modal">
+  <div class="modal-content">
+    <span id="cerrarModal" class="close">&times;</span>
+    <p id="textoModal"></p>
+  </div>
+</div>
 
 
 </body>

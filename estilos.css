@@ -26,14 +26,14 @@ h3 {
      color: #EF036C;
 }
 
-h2 {
+h2, h3 {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
   letter-spacing: 0.5px;
   
 }
 
-h2::after{
+h2::after, h3:after{
   content:"";
   display:block;
   width:60px;
@@ -41,6 +41,8 @@ h2::after{
   background:#EF036C;
   margin:8px auto 0;
 }
+
+
 
 
 /* =====================================================
@@ -270,7 +272,170 @@ h2::after{
 }
 
 
+/* =====================================================
+   5️⃣ SECCIÓN CALENDARIO
+===================================================== */
 
+/* =====================================================
+   1️⃣ SECCIÓN DISPONIBILIDAD - contenedor general
+===================================================== */
+.disponibilidad {
+  padding: 60px 20px;
+  text-align: center;
+  background: #f7f5ef;
+}
+
+/* =====================================================
+   2️⃣ CALENDARIO - contenedor y frame
+===================================================== */
+.calendario-container {
+  max-width: 900px;
+  margin: auto;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  margin-bottom: 15px; /* separación del resto de la sección */
+  position: relative; /* contenedor relativo */
+  z-index: 1; /* z-index del iframe */
+}
+
+.calendario-frame {
+  width: 100%;
+  height: 600px;
+  border: none;
+}
+
+/* =====================================================
+   3️⃣ NOTA DEL CALENDARIO
+===================================================== */
+.nota-calendario {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* =====================================================
+   4️⃣ RESERVA - contenedor de campos y botón
+===================================================== */
+.reserva-fechas {
+   position: relative; /* contenedor padre relativo */
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column; /* elementos uno debajo de otro */
+  align-items: center;
+  gap: 20px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Campos individuales de entrada/salida */
+.campo-fecha {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.campo-fecha label {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.fechas-grid {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+}
+
+/* Estilo de los inputs dentro del grid */
+.fechas-grid input,
+.reserva-fechas input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+.seleccion-fechas{
+  color: #0f172a;
+  font-size: 1.5rem;
+}
+
+/* =====================================================
+   5️⃣ BOTÓN DE RESERVA
+===================================================== */
+.btn-reserva {
+  background: #31EC56;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.btn-reserva:hover {
+  background: #22B340;
+}
+
+
+/*Modal*/
+/* Modal estilo simple */
+.modal {
+  display: none; /* oculto por defecto */
+  position: absolute; /* relativo a reserva-fechas */
+  top: 50%; /* centro vertical */
+  left: 50%; /* centro horizontal */
+  transform: translate(-50%, -50%); /* centra exactamente */
+  z-index: 100; /* encima del iframe */
+  width: 90%; /* responsive */
+  max-width: 380px;
+  background: rgba(247,245,239,0.95); /* mismo tono que tu fondo */
+  border-radius: 12px;
+  padding: 0; /* padding se lo damos al content *//
+}
+
+.modal-content {
+ background: #ffffff;
+  padding: 22px 24px;
+  border-radius: 14px;
+  text-align: center;
+
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+
+  border-top: 4px solid #EF036C; /* color principal de tu web */
+}
+
+
+/* Texto del modal */
+
+.modal-content p{
+  color:#444;
+  font-size:0.95rem;
+  line-height:1.5;
+  margin-top:10px;
+}
+
+/* Botón cerrar */
+
+.close {
+  color:#EF036C;
+  float:right;
+  font-size:1.5rem;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.close:hover {
+   color:#c00257;
+}
 
 /* =====================================================
    5️⃣ SECCIÓN DÚPLEX (CARDS)
@@ -283,7 +448,7 @@ h2::after{
 }
 
 .duplex-section h2 {
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   margin-bottom: 3rem;
   color: #0f172a;
 }
@@ -686,7 +851,7 @@ h2::after{
 }
 
 .seo-text h2 {
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   margin-bottom: 20px;
   color:#333; /* azul principal */
   font-weight: 800;
@@ -1331,6 +1496,22 @@ margin-top: 3rem;
 .video-container video{
     object-fit: cover;
 }
+
+/*Calendario*/
+/* Ajusta el contenedor del calendario */
+  .calendario-container {
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+  }
+
+  /* Ajusta el iframe para que sea más alto y responsivo */
+  .calendario-frame {
+    width: 100%;
+    height: 400px; /* menos alto que en escritorio */
+  }
 
 }
 
