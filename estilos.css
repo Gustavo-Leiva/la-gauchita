@@ -1076,7 +1076,8 @@ margin-top: 3rem;
     align-items: center;
     gap: 0.6rem;
     background: rgba(255,255,255,0.1);
-    padding: 0.8rem 1.2rem;
+    padding: 0.8rem 0.2rem;
+    margin: 2rem;
     border-radius: 12px;
     width: 100%;
     justify-content: center;
@@ -1267,17 +1268,49 @@ margin-top: 3rem;
     transform: scale(1.1); /* efecto hover */
 }
 
+
+  /* ===== UBICACIÓN ===== */
+
+   .ubicacion-section {
+    padding: 8rem 1rem;
+   
+}
+
+  .ubicacion-section h2 {
+    margin-top: 0;
+    font-size: 2.2rem;
+  }
+
+  .ubicacion-section p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .map-container {
+    margin-top: 4rem;
+    padding-bottom: 65%;
+  }
+   .contact-buttons.ubicacion {
+        flex-direction: column; /* apilar botones en móvil */
+        gap: 1rem;
+    }
+
+
 /* ===== Grande: tablets horizontales / laptops ≤ 992px ===== */
 @media (max-width: 992px) {
     .duplex-section h2 { font-size: 2rem; }
     .duplex-card img { height: 13.75rem; } /* antes 220px */
     .seo-text h2 { font-size: 2rem; }
     .seo-text p { font-size: 1rem; }
-    .btn-primary, .btn-whatsapp { width: auto; padding: 0.8rem 2rem; font-size: 1rem; }
+    .btn-primary, .btn-whatsapp { 
+      width: auto; padding: 0.8rem 2rem; font-size: 1rem; 
+    }
 
     .contact-info{
-  margin-right: 3rem;
-}
+     margin-right: 3rem;
+      margin: 0 auto;
+      text-align: center;
+    }
 }
 
 
@@ -1407,34 +1440,14 @@ h4:after{
         margin-top: 2rem;
         font-size: 0.95rem;
         line-height: 1.6;
+        margin: 0 auto;
+      
     }
 
 
-  /* ===== UBICACIÓN ===== */
+    }
 
-   .ubicacion-section {
-    padding: 8rem 1rem;
-   
-}
 
-  .ubicacion-section h2 {
-    margin-top: 0;
-    font-size: 2.2rem;
-  }
-
-  .ubicacion-section p {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .map-container {
-    margin-top: 4rem;
-    padding-bottom: 65%;
-  }
-   .contact-buttons.ubicacion {
-        flex-direction: column; /* apilar botones en móvil */
-        gap: 1rem;
-      }
 
 
 /* ===============================
@@ -1447,6 +1460,11 @@ h4:after{
     .seo-text h2 { font-size: 1.6rem; }
     .seo-text p { font-size: 0.95rem; }
     .btn-primary, .btn-whatsapp { width: 85%; padding: 0.7rem 0; font-size: 0.95rem; }
+
+    .contact-info{
+  text-align: center;
+  margin: 0 auto;
+}
 }
 
 
@@ -1607,4 +1625,3 @@ h4:after{
 }
 
 
-}
