@@ -1634,13 +1634,11 @@ h4:after{
 /* Ajusta el contenedor del calendario */
   .calendario-container {
     width: 100%;
-    margin: 0 auto;
-    border-radius: 10px;
+    padding: 0.5rem;
+    box-sizing: border-box; /* SOLUCION */
+    border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 6px 15px rgba(0,0,0,0.12);
-    padding:0.5rem;
-    margin: 0;
-    border-radius:15px;
     
   }
 
@@ -1670,6 +1668,38 @@ h4:after{
   .btn-reserva{
     width: 100%;
   }
+
+  /* Footer iconos alineados en mobile */
+.footer-col p{
+  display: flex;
+  align-items: flex-start; /* se alinea con la primera línea */
+  gap:4px; /* espacio real entre icono y texto */
+  margin-bottom:6px;
+  margin-left:0;
+  
+}
+
+.footer-col p i{
+   width: 16px;        /* ancho fijo para todos los iconos */
+  margin-top: 2px;    /* pequeño ajuste vertical */
+  flex-shrink: 0;     /* evita que el icono se achique */
+}
+
+.footer-item{
+  display:flex;
+  align-items:flex-start;
+  gap:4px;
+}
+
+.footer-item i{
+  font-size:0.95rem;
+  margin-top:3px;
+  flex-shrink:0;
+}
+
+.footer-item span{
+  line-height:1.4;
+}
 
   
 }
