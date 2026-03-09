@@ -1030,8 +1030,8 @@ h4:after{
     flex-wrap: wrap;
     text-align: center;
     justify-content: center;
-    gap: 1.5rem;
-    margin-bottom: 3rem;
+    gap: 0.2rem;
+    /* margin-bottom: 0.5rem; */
 }
 
 .contact-buttons .btn-primary {
@@ -1196,6 +1196,17 @@ margin-top: 3rem;
 }
 
 
+.ubicacion .btn-whatsapp{
+  display: block;
+  width: 100%;
+  max-width: 340px;   /* evita que sea enorme en escritorio */
+  margin: 1rem auto;  /* centra el botón */
+  padding: 14px 18px;
+  font-size: 1rem;
+  text-align: center;
+  border-radius: 8px;
+}
+
 
 /*Duplex planta Alta*/
 .duplex-features {
@@ -1293,7 +1304,7 @@ margin-top: 3rem;
   /* ===== UBICACIÓN ===== */
 
    .ubicacion-section {
-    padding: 8rem 1rem;
+    padding: 1rem 1rem;
    
 }
 
@@ -1311,10 +1322,11 @@ margin-top: 3rem;
     margin-top: 4rem;
     padding-bottom: 65%;
   }
-   .contact-buttons.ubicacion {
-        flex-direction: column; /* apilar botones en móvil */
-        gap: 1rem;
-    }
+
+  .contact-buttons.ubicacion {
+      flex-direction: column; /* apilar botones en móvil */
+      gap: 1rem;
+  }
 
 
 /* ===== Grande: tablets horizontales / laptops ≤ 992px ===== */
@@ -1517,173 +1529,231 @@ h4:after{
 }
 }
 
-
-/* ===== Muy pequeños: celulares ≤ 480px ===== */
+/* =====================================================
+   MOBILE MUY PEQUEÑOS (≤ 480px)
+   Ajustes generales para celulares chicos
+===================================================== */
 @media (max-width: 480px) {
-  .duplex-section h2 { font-size: 1.5rem; }
-  .duplex-card img { height: 9rem; }
 
-  .seo-text h2 { font-size: 1.5rem; }
-  .seo-text p { font-size: 0.9rem; }
+/* =====================================================
+   TITULOS Y TEXTOS
+===================================================== */
 
-  .btn-primary, .btn-whatsapp {
-      width: 90%;
-      padding: 0.65rem 0;
-      font-size: 0.9rem;
-  }
- 
-  .features-grid{
-     grid-template-columns: repeat(2,1fr);
-     gap: 1rem;
-  }
+.duplex-section h2{
+  font-size:1.5rem;
+}
+
+.seo-text h2{
+  font-size:1.5rem;
+}
+
+.seo-text p{
+  font-size:0.9rem;
+}
+
+
+/* =====================================================
+   TARJETAS DE DUPLEX
+===================================================== */
+
+.duplex-card img{
+  height:9rem;
+}
+
+
+/* =====================================================
+   BOTONES GENERALES
+===================================================== */
+
+.btn-primary,
+.btn-whatsapp{
+  width:90%;
+  padding:0.65rem 0;
+  font-size:0.9rem;
+}
+
+
+/* =====================================================
+   FEATURES / CARACTERISTICAS
+===================================================== */
+
+.features-grid{
+  grid-template-columns:repeat(2,1fr);
+  gap:1rem;
+}
 
 .feature{
-    background: none;
-    box-shadow: none;
-    border-radius: 0;
-    padding: 0.5rem;
+  background:none;
+  box-shadow:none;
+  border-radius:0;
+  padding:0.5rem;
 
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 
 .feature i{
-    font-size: 1.1rem;
-    color: #EF036C;
+  font-size:1.1rem;
+  color:#EF036C;
 }
 
 .feature p{
-    margin: 0;
-    text-align: left;
-    font-size: 0.9rem;
+  margin:0;
+  text-align:left;
+  font-size:0.9rem;
 }
 
+
+/* =====================================================
+   SECCION CONTACTO
+===================================================== */
 
 .contact-info{
-    margin-top: 2rem;
-    text-align: center;
+  margin-top:2rem;
+  text-align:center;
 }
-
 
 .contact-info p{
-    font-size: 0.9rem;
-    line-height: 1.6;
-    margin-bottom: 0.5rem;
+  font-size:0.9rem;
+  line-height:1.6;
+  margin-bottom:0.5rem;
 }
 
-
+/* botones contacto */
 
 .contact-buttons{
-    flex-direction: column;
-    gap: 0.8rem;
-    align-items: center;
+  flex-direction:column;
+  gap:0.8rem;
+  align-items:center;
 }
-
 
 .contact-buttons .btn-primary,
 .contact-buttons .btn-whatsapp{
-    width: 90%;
-    padding: 0.7rem 0;
-    font-size: 0.95rem;
-    border-radius: 8px;
+  width:90%;
+  padding:0.7rem 0;
+  font-size:0.95rem;
+  border-radius:8px;
 }
 
 
+/* =====================================================
+   BOTON WHATSAPP EN SECCION UBICACION
+===================================================== */
 
-/*Estilos para subrayado del footer*/
+.ubicacion .btn-whatsapp{
+  width:90%;
+  max-width:320px;
+  padding:14px 0;
+  font-size:1rem;
+  border-radius:8px;
+}
+
+
+/* =====================================================
+   VIDEO
+===================================================== */
+
+.duplex-video{
+  padding:1rem 0.5rem;
+  margin:1rem 0.5rem;
+  text-align:center;
+}
+
+.duplex-video h3{
+  font-size:1.3rem;
+  margin-top:0.3rem;
+}
+
+.video-container{
+  width:100%;
+  max-width:100%;
+  padding-top:60%; /* hace el video más alto */
+}
+
+.video-container video{
+  object-fit:cover;
+}
+
+
+/* =====================================================
+   CALENDARIO
+===================================================== */
+
+.calendario-container{
+  width:100%;
+  padding:0.5rem;
+  box-sizing:border-box;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 6px 15px rgba(0,0,0,0.12);
+}
+
+.calendario-frame{
+  width:100%;
+  height:400px;
+}
+
+
+/* =====================================================
+   FORMULARIO DE RESERVA
+===================================================== */
+
+.reserva-fechas{
+  width:92%;
+  margin-left:auto;
+  margin-right:auto;
+  padding:18px 16px;
+}
+
+.fechas-grid{
+  flex-direction:column;
+  gap:12px;
+}
+
+.campo-fecha input{
+  width:95%;
+}
+
+.btn-reserva{
+  width:100%;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+/* subrayado decorativo títulos */
+
 h4:after{
   content:"";
   display:block;
   width:3rem;
   height:2px;
   background:#EF036C;
-  margin: 8px auto 0;
+  margin:8px auto 0;
 }
 
 
-/* ===== VIDEO ===== */
+/* iconos alineados con texto */
 
-.duplex-video{
-    padding: 1rem 0.5rem; /* menos espacio lateral */
-    margin: 1rem 0.5rem;
-    text-align: center;
-}
-
-
-.duplex-video h3{
-    font-size: 1.3rem;
-    margin-top: 0.3rem;
-}
-
-.video-container{
-    width: 100%;
-    max-width: 100%;
-}
-
-.video-container{
-    max-width: 100%;
-    padding-top: 60%;   /* hace el video más alto */
-}
-
-.video-container video{
-    object-fit: cover;
-}
-
-/*Calendario*/
-/* Ajusta el contenedor del calendario */
-  .calendario-container {
-    width: 100%;
-    padding: 0.5rem;
-    box-sizing: border-box; /* SOLUCION */
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
-    
-  }
-
-  /* Ajusta el iframe para que sea más alto y responsivo */
-  .calendario-frame {
-    width: 100%;
-    height: 400px; /* menos alto que en escritorio */
-  }
-
-
-  .reserva-fechas{
-    width: 92%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 18px 16px; /* espacio interno para que no toque los bordes */
-  }
-
-  .fechas-grid{
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .campo-fecha input{
-    width: 95%;
-  }
-
-  .btn-reserva{
-    width: 100%;
-  }
-
-  /* Footer iconos alineados en mobile */
 .footer-col p{
-  display: flex;
-  align-items: flex-start; /* se alinea con la primera línea */
-  gap:4px; /* espacio real entre icono y texto */
+  display:flex;
+  align-items:flex-start;
+  gap:4px;
   margin-bottom:6px;
   margin-left:0;
-  
 }
 
 .footer-col p i{
-   width: 16px;        /* ancho fijo para todos los iconos */
-  margin-top: 2px;    /* pequeño ajuste vertical */
-  flex-shrink: 0;     /* evita que el icono se achique */
+  width:16px;
+  margin-top:2px;
+  flex-shrink:0;
 }
+
+
+/* items del footer */
 
 .footer-item{
   display:flex;
@@ -1701,7 +1771,22 @@ h4:after{
   line-height:1.4;
 }
 
-  
+
+/* =====================================================
+   MAPA
+===================================================== */
+
+.map-container{
+  width:100%;
+  margin:1rem auto;
 }
 
+.map-container iframe{
+  width:100%;
+  height:380px;
+  border:0;
+  border-radius:10px;
+}
+
+}
 
