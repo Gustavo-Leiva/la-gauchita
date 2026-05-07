@@ -83,6 +83,8 @@ h4:after{
   justify-content: space-between;
 }
 
+
+
 /* Marca */
 .nav-brand h1 {
   font-family: 'Playfair Display', serif;
@@ -129,6 +131,35 @@ h4:after{
 
 .nav-links a:hover::after {
   width: 100%;
+}
+
+.logo{
+   width: 70px;
+  height: 70px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: white; /* opcional */
+  padding: 5px;
+}
+
+.nav-brand{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+
+.brand-text{
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-text h1{
+  margin: 0;
+}
+
+.brand-text span{
+  font-size: 14px;
 }
 
 
@@ -1103,7 +1134,7 @@ h4:after{
 
 
 .ubicacion{
-margin-top: 3rem;
+margin-top: 4rem;
 }
 
 /* Información de contacto estilo tarjeta */
@@ -1488,15 +1519,19 @@ h4:after{
   margin: auto 0;
 }
 
-  /* ===== SECCION CONTACTO ===== */
+ /* ===== SECCION UBICACION===== */
+  .ubicacion-section h2 {
+  margin-top: 3.5rem;
+}
 
-
-      .ubicacion-section{
+    .ubicacion-section{
     padding:4rem 1rem 1rem;
-  }
+}
+
+/* ===== SECCION CONTACTO ===== */
 
   .contact-section h2 {
-  margin-top: 3rem;
+  margin-top: 3.5rem;
 }
 
     /* Contenedor centrado con ancho máximo más reducido */
