@@ -564,7 +564,7 @@ h4:after{
     /* display: flex; */
     gap: 3rem;
     padding: 2rem;
-    max-width: 1200px;
+    max-width: 40rem;
     margin: 0 auto;
     align-items: stretch;
 }
@@ -572,8 +572,8 @@ h4:after{
 .duplex-carousel {
     flex: 2;
     position: relative;
-    height: 65vh;
-    min-height: 28rem;
+    height: 50vh;
+    min-height: 24rem;
     border-radius: 1.2rem;
     overflow: hidden;
     box-shadow: 0 1rem 2.5rem rgba(0,0,0,0.02);
@@ -584,7 +584,9 @@ h4:after{
  position: absolute;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    /* object-fit: cover; */
+    object-fit: contain;
+    object-position: center;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
 }
@@ -710,7 +712,7 @@ h4:after{
 /* Contenedor con ancho limitado */
 .video-container {
   
-     max-width: 60rem;           /* ancho máximo */
+    max-width: 60rem;           /* ancho máximo */
     margin: 0 auto;
     border-radius: 15px;
     overflow: hidden;
@@ -736,9 +738,11 @@ h4:after{
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 15px;
 }
+
+
 
 
 
@@ -747,22 +751,40 @@ h4:after{
 .carousel-controls {
   position: absolute;
   top: 50%;
+  left: 0;
   width: 100%;
+  
   display: flex;
   justify-content: space-between;
+  align-items: center;
+
   transform: translateY(-50%);
-  padding: 0 20px;
+  
+  padding: 0 75px;
+  box-sizing: border-box;
+
+  z-index: 10;
 }
 
 .carousel-controls button {
-  background: rgba(0,0,0,0.4);
+    background: rgba(0,0,0,0.75);
     border: none;
     color: white;
     font-size: 1.2rem;
-    padding: 0.8rem 1rem;
+    
+    width: 48px;
+    height: 48px;
+
     border-radius: 50%;
     cursor: pointer;
-    transition: 0.3s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.3s ease;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.35);
 }
 
 .carousel-controls button:hover {
@@ -1330,6 +1352,16 @@ margin-top: 3rem;
       width: auto; padding: 0.8rem 2rem; font-size: 1rem; 
     }
 
+    .video-container{
+  width:100%;
+  max-width:100%;
+  padding-top:60%; /* hace el video más alto */
+}
+
+.video-container video{
+  object-fit:cover;
+}
+
     .contact-info{
      margin-right: 3rem;
       margin: 0 auto;
@@ -1404,6 +1436,7 @@ margin-top: 3rem;
   .seo-text p {
     font-size: 1rem;
   }
+
 
   /* ===== FOOTER ===== */
   .footer-modern-container {
@@ -1532,6 +1565,8 @@ h4:after{
   text-align: center;
   margin: 0 auto;
 }
+
+
 }
 
 /* =====================================================
@@ -1565,6 +1600,9 @@ h4:after{
   height:9rem;
 }
 
+.carousel-controls{
+  padding: 0 0.5rem;;
+}
 
 /* =====================================================
    BOTONES GENERALES
