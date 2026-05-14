@@ -61,6 +61,6 @@ document.getElementById("btnConsultar").addEventListener("click", function () {
   // Mensaje elegante sin emojis problemáticos
   const mensaje = `Hola Laura!\n\nMe gustaría consultar la disponibilidad en La Gauchita.\n\nEntrada: ${entrada}\nSalida: ${salida}\n\n¡Gracias!`;
 
-  const url = `https://wa.me/5491135112751?text=${encodeURIComponent(mensaje)}`;
+  const url = `https://wa.me/5491133684166?text=${encodeURIComponent(mensaje)}`;
   window.open(url, "_blank");
 });

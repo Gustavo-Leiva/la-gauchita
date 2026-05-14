@@ -1030,7 +1030,7 @@ h4:after{
 
 .contact-section {
     position: relative;
-    padding: 3rem 1rem;
+    padding: 4rem 1rem;
     text-align: center;
     color: #fff;
     background-image: url('./assets/img/fondo-contacto.webp');
@@ -1179,7 +1179,7 @@ margin-top: 4rem;
 .ubicacion-section {
   
   position:relative;
-  padding:2rem 1rem;
+  padding:5rem 1rem;
   text-align:center;
   color:#fff;
   font-family:"Montserrat", Helvetica, sans-serif;
@@ -1409,44 +1409,62 @@ margin-top: 4rem;
 }
 
 /* ===============================
-   RESPONSIVE - MÓVILES (max-width: 768px)
+   RESPONSIVE - TABLETS Y MÓVILES
+   (max-width: 768px)
 ================================= */
 
 @media (max-width: 768px) {
 
-    /* ===== NAVBAR RESPONSIVE ===== */
+  /* =====================================================
+     NAVBAR
+  ===================================================== */
+
   .nav-links {
     position: fixed;
     top: 0;
-    right: -100%; /* fuera de la pantalla al inicio */
+    right: 0;
+
+    transform: translateX(100%);
+
+    display: flex;
     flex-direction: column;
-    background: #002147; /* azul marino sólido */
-    width: 20rem; /* ancho cómodo */
+
+    width: min(20rem, 85vw);
     height: 100vh;
+
     padding: 4rem 2rem;
     gap: 1.8rem;
-    transition: right 0.3s ease;
+
+    background: #002147;
+
+    overflow-y: auto;
+
+    transition: transform 0.3s ease;
+
     z-index: 999;
+  }
+
+  .nav-links.active {
+    transform: translateX(0);
+    background: #002147;
   }
 
   .nav-links a {
     font-size: 1.3rem;
-    color: #fff;
     font-weight: 500;
+    color: #fff;
     text-decoration: none;
-  }
-
-  /* Activar menú hamburguesa */
-  .nav-links.active {
-    right: 0;
-    background: #002147;
   }
 
   .hamburger {
     display: flex;
   }
 
-  /* ===== HERO / DUPLEX ===== */
+
+  /* =====================================================
+     HERO / DUPLEX
+  ===================================================== */
+
   .duplex-section h2 {
     font-size: 1.8rem;
   }
@@ -1455,7 +1473,11 @@ margin-top: 4rem;
     height: 200px;
   }
 
-  /* ===== SEO TEXT ===== */
+
+  /* =====================================================
+     SEO TEXT
+  ===================================================== */
+
   .seo-text {
     padding: 30px 20px;
   }
@@ -1469,121 +1491,142 @@ margin-top: 4rem;
   }
 
 
-  /* ===== FOOTER ===== */
-  .footer-modern-container {
-    grid-template-columns: 1fr;
-     text-align:center;
-    gap: 2rem;
+  /* =====================================================
+     CONTACTO Y UBICACIÓN
+  ===================================================== */
+
+  .contact-section h2,
+  .ubicacion-section h2 {
+    font-size: 2.5rem;
+    margin-top: 3.5rem;
   }
+
+  .ubicacion-section {
+    padding: 4rem 1rem 1rem;
+  }
+
+  /* ----- Contenedor contacto ----- */
+
+  .contact-container {
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+  }
+
+  .contact-subtitle {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ----- Botones ----- */
+
+  .contact-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 1rem;
+  }
+
+  .contact-buttons a {
+    flex: 1;
+    max-width: 220px;
+  }
+
+  .btn-primary,
+  .btn-whatsapp {
+    width: 80%;
+    padding: 0.75rem 0;
+    font-size: 1rem;
+  }
+
+  /* ----- Información contacto ----- */
+
+  .contact-info {
+    margin: 0 auto;
+    margin-top: 2rem;
+
+    text-align: center;
+
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+
+  /* =====================================================
+     FOOTER
+  ===================================================== */
 
   .footer-modern {
-     text-align: center;
+    text-align: center;
   }
 
-  .footer-col p {
-     justify-content:center; /* si usás flex */
-    text-align:center;
-  font-size: 0.95rem;
-  color: #cbd5e1;
-  margin-bottom: 0.6rem;
-  text-decoration: none;
-  transition: all 0.25s ease;
-}
+  .footer-modern-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
 
-  .footer-col a:hover {
-    transform: none;
+    text-align: center;
   }
 
   .footer-modern .brand p {
     margin: 0 auto;
   }
 
+  .footer-col p {
+    display: flex;
+    justify-content: center;
 
-  /*Estilos para subrayado del footer*/
-h4:after{
-  content:"";
-  display:block;
-  width:3rem;
-  height:2px;
-  background:#EF036C;
-  margin: 8px auto 0;
+    margin-bottom: 0.6rem;
+
+    text-align: center;
+
+    font-size: 0.95rem;
+    color: #cbd5e1;
+
+    text-decoration: none;
+
+    transition: all 0.25s ease;
+  }
+
+  .footer-col a:hover {
+    transform: none;
+  }
+
+
+  /* =====================================================
+     SUBRAYADOS DECORATIVOS
+  ===================================================== */
+
+  h4::after {
+    content: "";
+
+    display: block;
+
+    width: 3rem;
+    height: 2px;
+
+    margin: 8px auto 0;
+
+    background: #EF036C;
+  }
+
+  .desc-block h4::after {
+    content: "";
+
+    display: block;
+
+    width: 3rem;
+    height: 2px;
+
+    margin: auto 0;
+
+    background: #EF036C;
+  }
+
 }
-
-
-.desc-block h4:after{
-  content:"";
-  display:block;
-  width:3rem;
-  height:2px;
-  background:#EF036C;
-  margin: auto 0;
-}
-
- /* ===== SECCION UBICACION===== */
-  .ubicacion-section h2 {
-  margin-top: 3.5rem;
-}
-
-    .ubicacion-section{
-    padding:4rem 1rem 1rem;
-}
-
-/* ===== SECCION CONTACTO ===== */
-
-  .contact-section h2 {
-  margin-top: 3.5rem;
-}
-
-    /* Contenedor centrado con ancho máximo más reducido */
-    .contact-container {
-        width: 100%;
-        max-width: 500px;
-        margin: auto;
-        text-align: center;
-    }
-
-    /* Subtítulo más legible en móviles */
-    .contact-subtitle {
-        font-size: 1rem;
-        line-height: 1.5;
-        margin-bottom: 1.5rem;
-    }
-
-    /* Botones apilados verticalmente con espacio entre ellos */
-    .contact-buttons {
-        display:flex;
-    flex-direction:row;
-    justify-content:center;
-    gap:1rem;
-    flex-wrap:wrap;
-       
-    }
-
-    .contact-buttons a{
-  flex:1;
-  max-width:220px;
-}
-
-    .btn-primary, .btn-whatsapp {
-        width: 80%;      /* Botones ocupan todo el ancho del contenedor */
-        padding: 0.75rem 0;
-        font-size: 1rem;
-    }
-
-    /* Información de contacto centrada y con margen */
-    .contact-info {
-        text-align: center;
-        margin-top: 2rem;
-        font-size: 0.95rem;
-        line-height: 1.6;
-        margin: 0 auto;
-      
-    }
-
-
-
-    }
-
 
 
 
@@ -1636,7 +1679,7 @@ h4:after{
 }
 
 .carousel-controls{
-  padding: 0 0.5rem;;
+  padding: 0 0.5rem;
 }
 
 /* =====================================================
@@ -1810,8 +1853,8 @@ h4:after{
   }
 
     .ubicacion-section h2{
-    font-size:2.2rem;
-    margin-top:0;
+    font-size:2.1rem;
+    margin-top:2rem;
   }
 
   .ubicacion-section p{
@@ -1862,6 +1905,12 @@ h4:after{
 }
 
 
+
+
+    .contacto-section h2{
+    font-size:2.1rem;
+    margin-top:2rem;
+  }
 
 /* =====================================================
    SECCION FOOTER
